@@ -101,11 +101,16 @@ namespace GtaChaos.Models.Utils
                 overrideEffectChoice = -1;
                 lastChoice = -1;
 
-                SendMessage("Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects!");
+                //SendMessage("Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects!");
+                string messageToSend = "Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects! ";
+
                 foreach (VotingElement element in effectVoting.VotingElements)
                 {
-                    SendMessage($"#{element.Id + 1}: {element.Effect.GetDescription()}");
+                    messageToSend += $"#{element.Id + 1}: {element.Effect.GetDescription()}. ";
+                    //SendMessage($"#{element.Id + 1}: {element.Effect.GetDescription()}");
                 }
+
+                SendMessage(messageToSend);
             }
             else if (VotingMode == 2)
             {
@@ -164,7 +169,7 @@ namespace GtaChaos.Models.Utils
             }
         }
 
-        private void SendMessage(string message, bool prefix = true)
+        private void SendMessage(string message)
         {
             if (Channel != null && message != null)
             {
@@ -180,7 +185,7 @@ namespace GtaChaos.Models.Utils
                     return;
                 }
 
-                Client.SendMessage(Channel, $"{(prefix ? "[GTA Chaos] " : "")}{message}");
+                Client.SendMessage(Channel, $"{(Config.Instance().TwitchUseChatPrefix ? "[GTA Chaos] " : "")}{message}");
             }
         }
 

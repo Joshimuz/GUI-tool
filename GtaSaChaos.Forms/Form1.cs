@@ -178,6 +178,8 @@ namespace GtaChaos.Forms
             checkBoxTwitchMajorityVoting.Checked = Config.Instance().TwitchMajorityVoting;
             checkBoxTwitch3TimesCooldown.Checked = Config.Instance().Twitch3TimesCooldown;
 
+            checkBoxTwitchUseChatPrefix.Checked = Config.Instance().TwitchUseChatPrefix;
+
             textBoxSeed.Text = Config.Instance().Seed;
         }
 
@@ -1101,6 +1103,11 @@ namespace GtaChaos.Forms
             {
                 node.UpdateCategory();
             }
+        }
+
+        private void CheckBoxTwitchUseChatPrefix_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.Instance().TwitchUseChatPrefix = checkBoxTwitchUseChatPrefix.Checked;
         }
     }
 }

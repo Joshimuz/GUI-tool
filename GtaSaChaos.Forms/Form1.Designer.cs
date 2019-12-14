@@ -76,13 +76,14 @@ namespace GtaChaos.Forms
             this.loadPresetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savePresetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viceCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sanAndreasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTipHandler = new System.Windows.Forms.ToolTip(this.components);
             this.buttonAutoStart = new System.Windows.Forms.Button();
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.buttonSwitchMode = new System.Windows.Forms.Button();
-            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viceCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sanAndreasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxTwitchUseChatPrefix = new System.Windows.Forms.CheckBox();
             this.tabSettings.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabTwitch.SuspendLayout();
@@ -193,6 +194,7 @@ namespace GtaChaos.Forms
             // tabTwitch
             // 
             this.tabTwitch.BackColor = System.Drawing.Color.Transparent;
+            this.tabTwitch.Controls.Add(this.checkBoxTwitchUseChatPrefix);
             this.tabTwitch.Controls.Add(this.checkBoxTwitch3TimesCooldown);
             this.tabTwitch.Controls.Add(this.label3);
             this.tabTwitch.Controls.Add(this.textBoxTwitchChannel);
@@ -222,7 +224,7 @@ namespace GtaChaos.Forms
             // checkBoxTwitch3TimesCooldown
             // 
             this.checkBoxTwitch3TimesCooldown.AutoSize = true;
-            this.checkBoxTwitch3TimesCooldown.Location = new System.Drawing.Point(362, 104);
+            this.checkBoxTwitch3TimesCooldown.Location = new System.Drawing.Point(362, 81);
             this.checkBoxTwitch3TimesCooldown.Name = "checkBoxTwitch3TimesCooldown";
             this.checkBoxTwitch3TimesCooldown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxTwitch3TimesCooldown.Size = new System.Drawing.Size(87, 17);
@@ -255,7 +257,7 @@ namespace GtaChaos.Forms
             this.buttonResetTwitch.Enabled = false;
             this.buttonResetTwitch.Location = new System.Drawing.Point(294, 58);
             this.buttonResetTwitch.Name = "buttonResetTwitch";
-            this.buttonResetTwitch.Size = new System.Drawing.Size(155, 23);
+            this.buttonResetTwitch.Size = new System.Drawing.Size(155, 20);
             this.buttonResetTwitch.TabIndex = 21;
             this.buttonResetTwitch.Text = "Reset";
             this.buttonResetTwitch.UseVisualStyleBackColor = true;
@@ -266,7 +268,7 @@ namespace GtaChaos.Forms
             this.checkBoxTwitchMajorityVoting.AutoSize = true;
             this.checkBoxTwitchMajorityVoting.Checked = true;
             this.checkBoxTwitchMajorityVoting.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTwitchMajorityVoting.Location = new System.Drawing.Point(354, 87);
+            this.checkBoxTwitchMajorityVoting.Location = new System.Drawing.Point(265, 81);
             this.checkBoxTwitchMajorityVoting.Name = "checkBoxTwitchMajorityVoting";
             this.checkBoxTwitchMajorityVoting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxTwitchMajorityVoting.Size = new System.Drawing.Size(95, 17);
@@ -279,7 +281,7 @@ namespace GtaChaos.Forms
             // checkBoxTwitchAllowOnlyEnabledEffects
             // 
             this.checkBoxTwitchAllowOnlyEnabledEffects.AutoSize = true;
-            this.checkBoxTwitchAllowOnlyEnabledEffects.Location = new System.Drawing.Point(137, 81);
+            this.checkBoxTwitchAllowOnlyEnabledEffects.Location = new System.Drawing.Point(116, 81);
             this.checkBoxTwitchAllowOnlyEnabledEffects.Name = "checkBoxTwitchAllowOnlyEnabledEffects";
             this.checkBoxTwitchAllowOnlyEnabledEffects.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxTwitchAllowOnlyEnabledEffects.Size = new System.Drawing.Size(148, 17);
@@ -297,6 +299,7 @@ namespace GtaChaos.Forms
             this.checkBoxShowLastEffectsTwitch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxShowLastEffectsTwitch.Location = new System.Drawing.Point(3, 81);
             this.checkBoxShowLastEffectsTwitch.Name = "checkBoxShowLastEffectsTwitch";
+            this.checkBoxShowLastEffectsTwitch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxShowLastEffectsTwitch.Size = new System.Drawing.Size(112, 17);
             this.checkBoxShowLastEffectsTwitch.TabIndex = 18;
             this.checkBoxShowLastEffectsTwitch.Text = "Show Last Effects";
@@ -318,7 +321,7 @@ namespace GtaChaos.Forms
             this.buttonTwitchToggle.Enabled = false;
             this.buttonTwitchToggle.Location = new System.Drawing.Point(294, 29);
             this.buttonTwitchToggle.Name = "buttonTwitchToggle";
-            this.buttonTwitchToggle.Size = new System.Drawing.Size(155, 23);
+            this.buttonTwitchToggle.Size = new System.Drawing.Size(155, 20);
             this.buttonTwitchToggle.TabIndex = 15;
             this.buttonTwitchToggle.Text = "Start / Resume";
             this.buttonTwitchToggle.UseVisualStyleBackColor = true;
@@ -327,16 +330,16 @@ namespace GtaChaos.Forms
             // comboBoxVotingCooldown
             // 
             this.comboBoxVotingCooldown.FormattingEnabled = true;
-            this.comboBoxVotingCooldown.Location = new System.Drawing.Point(294, 178);
+            this.comboBoxVotingCooldown.Location = new System.Drawing.Point(362, 149);
             this.comboBoxVotingCooldown.Name = "comboBoxVotingCooldown";
-            this.comboBoxVotingCooldown.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxVotingCooldown.Size = new System.Drawing.Size(87, 21);
             this.comboBoxVotingCooldown.TabIndex = 14;
             this.comboBoxVotingCooldown.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVotingCooldown_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(291, 162);
+            this.label7.Location = new System.Drawing.Point(362, 134);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 13;
@@ -345,7 +348,7 @@ namespace GtaChaos.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(291, 122);
+            this.label6.Location = new System.Drawing.Point(362, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 12;
@@ -354,9 +357,9 @@ namespace GtaChaos.Forms
             // comboBoxVotingTime
             // 
             this.comboBoxVotingTime.FormattingEnabled = true;
-            this.comboBoxVotingTime.Location = new System.Drawing.Point(294, 138);
+            this.comboBoxVotingTime.Location = new System.Drawing.Point(362, 112);
             this.comboBoxVotingTime.Name = "comboBoxVotingTime";
-            this.comboBoxVotingTime.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxVotingTime.Size = new System.Drawing.Size(87, 21);
             this.comboBoxVotingTime.TabIndex = 11;
             this.comboBoxVotingTime.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVotingTime_SelectedIndexChanged);
             // 
@@ -370,9 +373,9 @@ namespace GtaChaos.Forms
             // listLastEffectsTwitch
             // 
             this.listLastEffectsTwitch.FormattingEnabled = true;
-            this.listLastEffectsTwitch.Location = new System.Drawing.Point(3, 104);
+            this.listLastEffectsTwitch.Location = new System.Drawing.Point(3, 101);
             this.listLastEffectsTwitch.Name = "listLastEffectsTwitch";
-            this.listLastEffectsTwitch.Size = new System.Drawing.Size(282, 95);
+            this.listLastEffectsTwitch.Size = new System.Drawing.Size(353, 82);
             this.listLastEffectsTwitch.TabIndex = 8;
             // 
             // label5
@@ -415,7 +418,7 @@ namespace GtaChaos.Forms
             this.buttonConnectTwitch.Enabled = false;
             this.buttonConnectTwitch.Location = new System.Drawing.Point(294, 2);
             this.buttonConnectTwitch.Name = "buttonConnectTwitch";
-            this.buttonConnectTwitch.Size = new System.Drawing.Size(155, 23);
+            this.buttonConnectTwitch.Size = new System.Drawing.Size(155, 21);
             this.buttonConnectTwitch.TabIndex = 1;
             this.buttonConnectTwitch.Text = "Connect to Twitch";
             this.buttonConnectTwitch.UseVisualStyleBackColor = true;
@@ -581,6 +584,29 @@ namespace GtaChaos.Forms
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
+            // gameToolStripMenuItem
+            // 
+            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viceCityToolStripMenuItem,
+            this.sanAndreasToolStripMenuItem});
+            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.gameToolStripMenuItem.Text = "Game";
+            // 
+            // viceCityToolStripMenuItem
+            // 
+            this.viceCityToolStripMenuItem.Name = "viceCityToolStripMenuItem";
+            this.viceCityToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.viceCityToolStripMenuItem.Text = "Vice City";
+            this.viceCityToolStripMenuItem.Click += new System.EventHandler(this.viceCityToolStripMenuItem_Click);
+            // 
+            // sanAndreasToolStripMenuItem
+            // 
+            this.sanAndreasToolStripMenuItem.Name = "sanAndreasToolStripMenuItem";
+            this.sanAndreasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.sanAndreasToolStripMenuItem.Text = "San Andreas";
+            this.sanAndreasToolStripMenuItem.Click += new System.EventHandler(this.sanAndreasToolStripMenuItem_Click);
+            // 
             // buttonAutoStart
             // 
             this.buttonAutoStart.Location = new System.Drawing.Point(12, 27);
@@ -607,28 +633,20 @@ namespace GtaChaos.Forms
             this.buttonSwitchMode.UseVisualStyleBackColor = true;
             this.buttonSwitchMode.Click += new System.EventHandler(this.ButtonSwitchMode_Click);
             // 
-            // gameToolStripMenuItem
+            // checkBoxTwitchUseChatPrefix
             // 
-            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viceCityToolStripMenuItem,
-            this.sanAndreasToolStripMenuItem});
-            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.gameToolStripMenuItem.Text = "Game";
-            // 
-            // viceCityToolStripMenuItem
-            // 
-            this.viceCityToolStripMenuItem.Name = "viceCityToolStripMenuItem";
-            this.viceCityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viceCityToolStripMenuItem.Text = "Vice City";
-            this.viceCityToolStripMenuItem.Click += new System.EventHandler(this.viceCityToolStripMenuItem_Click);
-            // 
-            // sanAndreasToolStripMenuItem
-            // 
-            this.sanAndreasToolStripMenuItem.Name = "sanAndreasToolStripMenuItem";
-            this.sanAndreasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sanAndreasToolStripMenuItem.Text = "San Andreas";
-            this.sanAndreasToolStripMenuItem.Click += new System.EventHandler(this.sanAndreasToolStripMenuItem_Click);
+            this.checkBoxTwitchUseChatPrefix.AutoSize = true;
+            this.checkBoxTwitchUseChatPrefix.Checked = true;
+            this.checkBoxTwitchUseChatPrefix.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTwitchUseChatPrefix.Location = new System.Drawing.Point(3, 185);
+            this.checkBoxTwitchUseChatPrefix.Name = "checkBoxTwitchUseChatPrefix";
+            this.checkBoxTwitchUseChatPrefix.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxTwitchUseChatPrefix.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxTwitchUseChatPrefix.TabIndex = 25;
+            this.checkBoxTwitchUseChatPrefix.Text = "Chat Prefix";
+            this.toolTipHandler.SetToolTip(this.checkBoxTwitchUseChatPrefix, "Whether or not to prefix all chat messages with [GTA Chaos]");
+            this.checkBoxTwitchUseChatPrefix.UseVisualStyleBackColor = true;
+            this.checkBoxTwitchUseChatPrefix.CheckedChanged += new System.EventHandler(this.CheckBoxTwitchUseChatPrefix_CheckedChanged);
             // 
             // Form1
             // 
@@ -718,6 +736,7 @@ namespace GtaChaos.Forms
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viceCityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sanAndreasToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBoxTwitchUseChatPrefix;
     }
 }
 
