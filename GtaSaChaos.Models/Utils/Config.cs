@@ -39,6 +39,7 @@ namespace GtaChaos.Models.Utils
         public string TwitchOAuthToken;
 
         public bool TwitchUseChatPrefix;
+        public bool TwitchCombineChatMessages;
 
         public static Config Instance()
         {

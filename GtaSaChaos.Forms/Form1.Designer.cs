@@ -84,6 +84,7 @@ namespace GtaChaos.Forms
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.buttonSwitchMode = new System.Windows.Forms.Button();
             this.checkBoxTwitchUseChatPrefix = new System.Windows.Forms.CheckBox();
+            this.checkBoxTwitchCombineChatMessages = new System.Windows.Forms.CheckBox();
             this.tabSettings.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabTwitch.SuspendLayout();
@@ -194,6 +195,7 @@ namespace GtaChaos.Forms
             // tabTwitch
             // 
             this.tabTwitch.BackColor = System.Drawing.Color.Transparent;
+            this.tabTwitch.Controls.Add(this.checkBoxTwitchCombineChatMessages);
             this.tabTwitch.Controls.Add(this.checkBoxTwitchUseChatPrefix);
             this.tabTwitch.Controls.Add(this.checkBoxTwitch3TimesCooldown);
             this.tabTwitch.Controls.Add(this.label3);
@@ -644,9 +646,24 @@ namespace GtaChaos.Forms
             this.checkBoxTwitchUseChatPrefix.Size = new System.Drawing.Size(77, 17);
             this.checkBoxTwitchUseChatPrefix.TabIndex = 25;
             this.checkBoxTwitchUseChatPrefix.Text = "Chat Prefix";
-            this.toolTipHandler.SetToolTip(this.checkBoxTwitchUseChatPrefix, "Whether or not to prefix all chat messages with [GTA Chaos]");
+            this.toolTipHandler.SetToolTip(this.checkBoxTwitchUseChatPrefix, "When enabled will prefix all chat messages with [GTA Chaos]");
             this.checkBoxTwitchUseChatPrefix.UseVisualStyleBackColor = true;
             this.checkBoxTwitchUseChatPrefix.CheckedChanged += new System.EventHandler(this.CheckBoxTwitchUseChatPrefix_CheckedChanged);
+            // 
+            // checkBoxTwitchCombineChatMessages
+            // 
+            this.checkBoxTwitchCombineChatMessages.AutoSize = true;
+            this.checkBoxTwitchCombineChatMessages.Checked = true;
+            this.checkBoxTwitchCombineChatMessages.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTwitchCombineChatMessages.Location = new System.Drawing.Point(83, 185);
+            this.checkBoxTwitchCombineChatMessages.Name = "checkBoxTwitchCombineChatMessages";
+            this.checkBoxTwitchCombineChatMessages.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxTwitchCombineChatMessages.Size = new System.Drawing.Size(143, 17);
+            this.checkBoxTwitchCombineChatMessages.TabIndex = 26;
+            this.checkBoxTwitchCombineChatMessages.Text = "Combine Chat Messages";
+            this.toolTipHandler.SetToolTip(this.checkBoxTwitchCombineChatMessages, "When enabled will combine all multi messages into one message");
+            this.checkBoxTwitchCombineChatMessages.UseVisualStyleBackColor = true;
+            this.checkBoxTwitchCombineChatMessages.CheckedChanged += new System.EventHandler(this.CheckBoxTwitchCombineChatMessages_CheckedChanged);
             // 
             // Form1
             // 
@@ -737,6 +754,7 @@ namespace GtaChaos.Forms
         private System.Windows.Forms.ToolStripMenuItem viceCityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sanAndreasToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBoxTwitchUseChatPrefix;
+        private System.Windows.Forms.CheckBox checkBoxTwitchCombineChatMessages;
     }
 }
 

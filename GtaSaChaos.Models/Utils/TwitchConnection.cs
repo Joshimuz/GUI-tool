@@ -101,16 +101,28 @@ namespace GtaChaos.Models.Utils
                 overrideEffectChoice = -1;
                 lastChoice = -1;
 
-                //SendMessage("Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects!");
-                string messageToSend = "Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects! ";
-
-                foreach (VotingElement element in effectVoting.VotingElements)
+                if (Config.Instance().TwitchCombineChatMessages)
                 {
-                    messageToSend += $"#{element.Id + 1}: {element.Effect.GetDescription()}. ";
-                    //SendMessage($"#{element.Id + 1}: {element.Effect.GetDescription()}");
-                }
+                    //SendMessage("Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects!");
+                    string messageToSend = "Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects! ";
 
-                SendMessage(messageToSend);
+                    foreach (VotingElement element in effectVoting.VotingElements)
+                    {
+                        messageToSend += $"#{element.Id + 1}: {element.Effect.GetDescription()}. ";
+                        //SendMessage($"#{element.Id + 1}: {element.Effect.GetDescription()}");
+                    }
+
+                    SendMessage(messageToSend);
+                }
+                else
+                {
+                    SendMessage("Voting has started! Type 1, 2 or 3 (or #1, #2, #3) to vote for one of the effects!");
+
+                    foreach (VotingElement element in effectVoting.VotingElements)
+                    {
+                        SendMessage($"#{element.Id + 1}: {element.Effect.GetDescription()}");
+                    }
+                }
             }
             else if (VotingMode == 2)
             {
@@ -126,11 +138,26 @@ namespace GtaChaos.Models.Utils
                     AbstractEffect effect = votingElement.Effect;
 
                     string effectText = effect.GetDescription();
-                    SendMessage($"Cooldown has started! ({untilRapidFire} until Rapid-Fire) - Enabled effect: {effectText} voted by {(username ?? "GTA:SA Chaos")}");
 
-                    if (untilRapidFire == 1)
+                    if (Config.Instance().TwitchCombineChatMessages)
                     {
-                        SendMessage("Rapid-Fire is coming up! Get your cheats ready! - List of all effects: https://bit.ly/gta-sa-chaos-mod");
+                        string messageToSend = $"Cooldown has started! ({untilRapidFire} until Rapid-Fire) - Enabled effect: {effectText} voted by {(username ?? "GTA:SA Chaos")}. ";
+
+                        if (untilRapidFire == 1)
+                        {
+                            messageToSend += "Rapid-Fire is coming up! Get your cheats ready! - List of all effects: https://bit.ly/gta-sa-chaos-mod";
+                        }
+
+                        SendMessage(messageToSend);
+                    }
+                    else
+                    {
+                        SendMessage($"Cooldown has started! ({untilRapidFire} until Rapid-Fire) - Enabled effect: {effectText} voted by {(username ?? "GTA:SA Chaos")}");
+
+                        if (untilRapidFire == 1)
+                        {
+                            SendMessage("Rapid-Fire is coming up! Get your cheats ready! - List of all effects: https://bit.ly/gta-sa-chaos-mod");
+                        }
                     }
                 }
                 else
